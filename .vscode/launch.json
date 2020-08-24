@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Simulator",
+            "request": "launch",
+            "mainClass": "src.simulator.Simulator",
+            "projectName": "avaj_launcher_98a4c707"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<avaj_launcher_98a4c707>",
+            "request": "launch",
+            "mainClass": "src.Main",
+            "projectName": "avaj_launcher_98a4c707",
+            "args": "tests/scenario.txt"
+        }
+    ]
+}
