@@ -1,2 +1,2 @@
 #!/bin/sh
-java output.src.simulator.Simulator tests/scenario.txt
+java output.src.Main tests/scenario.txt
