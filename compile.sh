@@ -1,3 +1,3 @@
 #!/bin/sh
 find -name *.java > sources.txt
-javac -sourcepath @sources.txt -d bin
+javac -sourcepath src/Main.java @sources.txt -d bin

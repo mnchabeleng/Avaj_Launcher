@@ -16,4 +16,33 @@ public class Validate {
         }
         return true;
     }
+
+    public static boolean cycle(String cycle){
+        Integer new_cycle;
+        
+        try{
+            new_cycle = Integer.parseInt(cycle);
+            if(new_cycle > 0)
+                return true;
+        }catch(Exception e){}
+        return false;
+    }
+
+    public static boolean lng(int lng){
+        if(lng >= 0)
+            return true;
+        return false;
+    }
+
+    public static boolean lat(int lat){
+        if(lat >= 0)
+            return true;
+        return false;
+    }
+
+    public static boolean height(int height){
+        if(height >= 0 && height <= 100)
+            return true;
+        return false;
+    }
 }

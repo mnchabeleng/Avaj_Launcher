@@ -6,7 +6,7 @@ public class WeatherProvider {
 
     private WeatherProvider(){}
 
-    public WeatherProvider getProvider(){
+    public static WeatherProvider getProvider(){
         return WeatherProvider.weatherProvider;
     }
 
