@@ -1,5 +1,8 @@
 package src.aircraft;
 
-public class Flyable {
-    
+import src.weather.WeatherTower;
+
+interface Flyable {
+    public void updateConditions();
+    public void registerTower(WeatherTower weatherTower);
 }

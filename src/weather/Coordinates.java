@@ -3,31 +3,33 @@ package src.weather;
 import src.helpers.Validate;
 
 public class Coordinates {
-    protected int lng;
-    protected int lat;
-    protected int height;
+    private int lng;
+    private int lat;
+    private int height;
 
-    public Coordinates(Coordinates coordinates){
-        this.setLng(coordinates.lng);
-        this.setLat(coordinates.lat);
-        this.setHeight(coordinates.height);
+    public Coordinates(int lng, int lat, int height){
+        setLng(lng);
+        setLat(lat);
+        setHeight(height);
     }
 
     public void setLng(int lng){
-        if(!Validate.lng(lng))
+        if(lng < 0)
             lng = 0;
         this.lng = lng;
     }
 
     public void setLat(int lat){
-        if(!Validate.lat(lat))
+        if(lat < 0)
             lat = 0;
         this.lat = lat;
     }
 
     public void setHeight(int height){
-        if(!Validate.height(height))
+        if(height > 100)
             height = 100;
+        if(height < 0)
+            height = 0;
         this.height = height;
     }
 
