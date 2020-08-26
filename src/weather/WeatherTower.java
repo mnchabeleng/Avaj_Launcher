@@ -1,5 +1,5 @@
 package src.weather;
 
-public class WeatherTower {
+public class WeatherTower extends Tower {
     
 }
