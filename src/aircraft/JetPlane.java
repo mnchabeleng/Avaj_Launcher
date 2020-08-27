@@ -20,13 +20,13 @@ public class JetPlane extends Aircraft implements Flyable {
         messages.put("FOG", "JetPlane FOG!");
         messages.put("SNOW", "JetPlane SNOW!");
 
-        if(weather == "SUN")
+        if(weather.equals("SUN"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat() + 10, coordinates.getHeight() + 5);
-        else if(weather == "RAIN")
+        else if(weather.equals("RAIN"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat() + 5, coordinates.getHeight());
-        else if(weather == "FOG")
+        else if(weather.equals("FOG"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat() + 1, coordinates.getHeight());
-        else if(weather == "SNOW")
+        else if(weather.equals("SNOW"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat(), coordinates.getHeight() - 7);
     }
 

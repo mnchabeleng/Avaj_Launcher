@@ -20,13 +20,13 @@ public class Helicopter extends Aircraft implements Flyable {
         messages.put("FOG", "Helicopter FOG!");
         messages.put("SNOW", "Helicopter SNOW!");
 
-        if(weather == "SUN")
+        if(weather.equals("SUN"))
             this.coordinates = new Coordinates(coordinates.getLng() + 10, coordinates.getLat(), coordinates.getHeight() + 2);
-        else if(weather == "RAIN")
+        else if(weather.equals("RAIN"))
             this.coordinates = new Coordinates(coordinates.getLng() + 5, coordinates.getLat(), coordinates.getHeight());
-        else if(weather == "FOG")
+        else if(weather.equals("FOG"))
             this.coordinates = new Coordinates(coordinates.getLng() + 1, coordinates.getLat(), coordinates.getHeight());
-        else if(weather == "SNOW")
+        else if(weather.equals("SNOW"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat(), coordinates.getHeight() - 12);
     }
 

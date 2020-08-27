@@ -20,13 +20,13 @@ public class Baloon extends Aircraft implements Flyable {
         messages.put("FOG", "Baloon FOG!");
         messages.put("SNOW", "Baloon SNOW!");
 
-        if(weather == "SUN")
+        if(weather.equals("SUN"))
             this.coordinates = new Coordinates(coordinates.getLng() + 2, coordinates.getLat(), coordinates.getHeight() + 4);
-        else if(weather == "RAIN")
+        else if(weather.equals("RAIN"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat(), coordinates.getHeight() - 5);
-        else if(weather == "FOG")
+        else if(weather.equals("FOG"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat(), coordinates.getHeight() - 3);
-        else if(weather == "SNOW")
+        else if(weather.equals("SNOW"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat(), coordinates.getHeight() - 15);
     }
 
