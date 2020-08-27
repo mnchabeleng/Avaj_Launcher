@@ -8,13 +8,13 @@ import java.util.ArrayList;
 public class Tower {
     private List<Flyable> observers = new ArrayList<Flyable>();
 
-    public void registerFlyable(Flyable flyable){
+    public void register(Flyable flyable){
         if(observers.contains(flyable))
             return;
         observers.add(flyable);
     }
 
-    public void unregisterFlyable(Flyable flyable){
+    public void unregister(Flyable flyable){
         observers.remove(flyable);
     }
 
