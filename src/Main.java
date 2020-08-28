@@ -39,6 +39,5 @@ public class Main {
             else
                 System.out.println(aircraftData.length);
         }
-        file.createFile(list, "simulation.txt");
     }
 }

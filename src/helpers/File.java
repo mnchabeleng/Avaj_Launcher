@@ -41,20 +41,6 @@ public class File {
         return list;
     }
 
-    public void createFile(List<String> list,  String fileName){
-        try {
-            FileWriter fileWriter = new FileWriter(fileName);
-
-            for(int i = 0; i < list.size(); i++)
-                fileWriter.write(list.get(i) + "\n");
-            
-            fileWriter.close();
-            Message.success("Created ./" + fileName);
-        } catch(IOException e){
-            e.printStackTrace();
-        }
-    }
-
     public String[] splitString(String s){
         return s.split("\\s+");
     }
