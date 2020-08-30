@@ -2,7 +2,7 @@ package src.aircraft;
 
 import src.weather.Coordinates;
 
-public class AircraftFactory {
+public abstract class AircraftFactory {
     public static Flyable newAircraft(String type, String name, int lng, int lat, int height){
         Coordinates coordinates = new Coordinates(lng, lat, height);
         if(type.toLowerCase().equals("JetPlane"))

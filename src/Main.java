@@ -38,7 +38,6 @@ public class Main {
         }
 
         WeatherTower weatherTower = new WeatherTower();
-        AircraftFactory aircraftFactory = new AircraftFactory();
 
         for(int i = 1; i < list.size(); i++)
         {
@@ -46,11 +45,18 @@ public class Main {
             if(!Validate.aircraftData(aircraftData))
                 Message.error("Invalid Aircraft data");
             else{
-                System.out.println(aircraftData[0] + " " + aircraftData[1] + " " + aircraftData[2] + " " + aircraftData[3] + " " + aircraftData[4]);
                 try{
-                    aircraftFactory.newAircraft(aircraftData[0], aircraftData[1], Integer.parseInt(aircraftData[2]), Integer.parseInt(aircraftData[3]), Integer.parseInt(aircraftData[4]));
+                    String type = aircraftData[0];
+                    String name = aircraftData[1];
+                    int lng = Integer.parseInt(aircraftData[2]);
+                    int lat = Integer.parseInt(aircraftData[3]);
+                    int height = Integer.parseInt(aircraftData[4]);
+
+                    System.out.println(type + " " + name + " " + lng + " " + lat + " " + height);
+                    AircraftFactory.newAircraft(type, name, lng, lat, height);
                 }catch(Exception e){
                     Message.error(e.getMessage());
+                    return;
                 }
             }
         }
