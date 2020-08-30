@@ -10,10 +10,10 @@ public class Message {
     public static final String WHITE = "\u001B[37m";
 
     public static void success(String message){
-        System.out.println(Message.GREEN + Message.BOLD + "Success: " + message + Message.DEFAULT);
+        System.out.println(Message.GREEN + "Success: " + message + Message.DEFAULT);
     }
 
     public static void error(String message){
-        System.out.println(Message.RED + Message.BOLD + "Error: " + message + Message.DEFAULT);
+        System.out.println(Message.RED + "Error: " + message + Message.DEFAULT);
     }
 }

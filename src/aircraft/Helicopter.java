@@ -2,6 +2,7 @@ package src.aircraft;
 
 import src.weather.Coordinates;
 import src.weather.WeatherTower;
+import src.Main;
 
 import java.util.HashMap;
 
@@ -28,6 +29,11 @@ public class Helicopter extends Aircraft implements Flyable {
             this.coordinates = new Coordinates(coordinates.getLng() + 1, coordinates.getLat(), coordinates.getHeight());
         else if(weather.equals("SNOW"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat(), coordinates.getHeight() - 12);
+
+        Main.printWriter.println("Baloon#" + this.name + "(" + this.id + "): " + messages.get(weather));
+        if(this.coordinates.getHeight() == 0){
+            this.weatherTower.unregister(this);
+        }
     }
 
     public void registerTower(WeatherTower weatherTower){

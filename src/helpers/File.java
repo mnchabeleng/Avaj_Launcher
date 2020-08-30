@@ -1,6 +1,6 @@
 package src.helpers;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -22,8 +22,7 @@ public class File {
     }
 
     public List<String> readFile(){
-        List<String> list = new LinkedList<String>();
-        
+        List<String> list = new ArrayList<String>(); 
         try {
             FileReader fileReader = new FileReader(this.fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -37,7 +36,6 @@ public class File {
         }catch(IOException e){
             Message.error("Failed to load scenario file");
         }
-        
         return list;
     }
 

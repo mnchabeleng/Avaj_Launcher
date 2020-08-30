@@ -1,16 +1,19 @@
 package src;
 
-import java.util.LinkedList;
-import java.util.List;
 import src.helpers.File;
 import src.helpers.Message;
 import src.helpers.Validate;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.io.PrintWriter;
+
 public class Main {
+    public static int cycle = 0;
+    public static PrintWriter printWriter;
     private static final File file = new File();
 
     public static void main(String[] args) {
-        String cycle;
         String scenarioFile;
         List<String> list;
         String[] aircraftData;
@@ -21,16 +24,16 @@ public class Main {
         }
         
         scenarioFile = args[0];
-        list = new LinkedList<String>();
+        list = new ArrayList<String>();
         
         file.setFileName(scenarioFile);
         list.addAll(file.readFile());
         if(list.isEmpty()) return;
-        cycle = list.get(0);
-        if(!Validate.cycle(cycle)){
+        if(!Validate.cycle(list.get(0))){
             Message.error("First line of scenario must be positive integer");
             return;
         }
+
         for(int i = 1; i < list.size(); i++)
         {
             aircraftData = file.splitString(list.get(i));

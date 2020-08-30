@@ -2,6 +2,7 @@ package src.aircraft;
 
 import src.weather.Coordinates;
 import src.weather.WeatherTower;
+import src.Main;
 
 import java.util.HashMap;
 
@@ -15,10 +16,10 @@ public class Baloon extends Aircraft implements Flyable {
     public void updateConditions(){
         String weather = weatherTower.getWeather(this.coordinates);
         HashMap<String, String> messages = new HashMap<String, String>();
-        messages.put("SUN", "Baloon SUN!");
-        messages.put("RAIN", "Baloon RAIN!");
+        messages.put("SUN", "Let's enjoy the good weather and take some pics.");
+        messages.put("RAIN", "Damn you rain! You messed up my baloon.");
         messages.put("FOG", "Baloon FOG!");
-        messages.put("SNOW", "Baloon SNOW!");
+        messages.put("SNOW", "It's snowing. We're gonna crash.");
 
         if(weather.equals("SUN"))
             this.coordinates = new Coordinates(coordinates.getLng() + 2, coordinates.getLat(), coordinates.getHeight() + 4);
@@ -28,6 +29,11 @@ public class Baloon extends Aircraft implements Flyable {
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat(), coordinates.getHeight() - 3);
         else if(weather.equals("SNOW"))
             this.coordinates = new Coordinates(coordinates.getLng(), coordinates.getLat(), coordinates.getHeight() - 15);
+
+        Main.printWriter.println("Baloon#" + this.name + "(" + this.id + "): " + messages.get(weather));
+        if(this.coordinates.getHeight() == 0){
+            this.weatherTower.unregister(this);
+        }
     }
 
     public void registerTower(WeatherTower weatherTower){
