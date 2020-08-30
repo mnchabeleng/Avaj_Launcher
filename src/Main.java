@@ -3,6 +3,9 @@ package src;
 import src.helpers.File;
 import src.helpers.Message;
 import src.helpers.Validate;
+import src.weather.WeatherProvider;
+import src.weather.WeatherTower;
+import src.aircraft.AircraftFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +37,22 @@ public class Main {
             return;
         }
 
+        WeatherTower weatherTower = new WeatherTower();
+        AircraftFactory aircraftFactory = new AircraftFactory();
+
         for(int i = 1; i < list.size(); i++)
         {
             aircraftData = file.splitString(list.get(i));
             if(!Validate.aircraftData(aircraftData))
                 Message.error("Invalid Aircraft data");
-            else
-                System.out.println(aircraftData.length);
+            else{
+                System.out.println(aircraftData[0] + " " + aircraftData[1] + " " + aircraftData[2] + " " + aircraftData[3] + " " + aircraftData[4]);
+                try{
+                    aircraftFactory.newAircraft(aircraftData[0], aircraftData[1], Integer.parseInt(aircraftData[2]), Integer.parseInt(aircraftData[3]), Integer.parseInt(aircraftData[4]));
+                }catch(Exception e){
+                    Message.error(e.getMessage());
+                }
+            }
         }
     }
 }
