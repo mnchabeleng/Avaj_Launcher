@@ -10,6 +10,7 @@ import src.aircraft.AircraftFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.PrintWriter;
+import java.io.FileNotFoundException;
 
 public class Main {
     public static int cycle = 0;
@@ -37,28 +38,35 @@ public class Main {
             return;
         }
 
+        try{
+            printWriter = new PrintWriter("../simulation.txt");
+        }catch(FileNotFoundException e){
+            Message.error(e.getMessage());
+        }
+
         WeatherTower weatherTower = new WeatherTower();
 
         for(int i = 1; i < list.size(); i++)
         {
             aircraftData = file.splitString(list.get(i));
             if(!Validate.aircraftData(aircraftData))
-                Message.error("Invalid Aircraft data");
-            else{
-                try{
-                    String type = aircraftData[0];
-                    String name = aircraftData[1];
-                    int lng = Integer.parseInt(aircraftData[2]);
-                    int lat = Integer.parseInt(aircraftData[3]);
-                    int height = Integer.parseInt(aircraftData[4]);
-
-                    System.out.println(type + " " + name + " " + lng + " " + lat + " " + height);
-                    AircraftFactory.newAircraft(type, name, lng, lat, height);
-                }catch(Exception e){
-                    Message.error(e.getMessage());
-                    return;
-                }
+                continue;
+            try{
+                String type = aircraftData[0];
+                String name = aircraftData[1];
+                int lng = Integer.parseInt(aircraftData[2]);
+                int lat = Integer.parseInt(aircraftData[3]);
+                int height = Integer.parseInt(aircraftData[4]);
+                printWriter.println(type + " " + name + " " + " " + lng + " " + lat + " " + height);
+                //AircraftFactory.newAircraft(type, name, lng, lat, height).registerTower(weatherTower);
+            }catch(Exception e){
+                //Message.error(e.getMessage());
+                e.printStackTrace();
+                return;
             }
         }
+
+        Message.success("Created ../simulation.txt");
+        printWriter.close();
     }
 }

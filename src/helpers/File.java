@@ -21,6 +21,10 @@ public class File {
         this.fileName = fileName;
     }
 
+    public String getFileName(){
+        return this.fileName;
+    }
+
     public List<String> readFile(){
         List<String> list = new ArrayList<String>(); 
         try {
