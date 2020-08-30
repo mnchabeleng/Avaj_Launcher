@@ -33,12 +33,14 @@ public class JetPlane extends Aircraft implements Flyable {
         Main.printWriter.println("Baloon#" + this.name + "(" + this.id + "): " + messages.get(weather));
         if(this.coordinates.getHeight() == 0){
             this.weatherTower.unregister(this);
+            Main.printWriter.println("");
+            Main.printWriter.println("");
         }
     }
 
     public void registerTower(WeatherTower weatherTower){
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
-        Main.printWriter.println("");
+        Main.printWriter.println("Tower says: Baloon#" + this.name + "(" + this.id + ") registered to weather tower.");
     }
 }
